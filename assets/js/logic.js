@@ -5,7 +5,8 @@ var timer;
 var currentQuestion = 0;
 var score = 0;
 var submit = ;
-// sound effcts for riggt and wrong answer
+
+// sound effects for riggt and wrong answer
 var sfxRight = new Audio("assets/sfx/correct.wav");
 var sfxWrong = new Audio("assets/sfx/incorrect.wav");
                 
@@ -13,8 +14,11 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  var startQuiz = document.addEventListener("click"); // wrong, needs to be get ElementByID first, as that declares what is required
  document.getElementById("start").addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
  
- const questionArray = questions; 
- // we have access to the question.js due to the shared space in the index.HTML file. Thus allowing me to refer to variables declared in the question.js file.
+ var questionContainer = document.querySelector("queston-title"); //used to grab div for the Questions.
+ var choicesContainer = document.querySelector("choices"); // Grab div for the answer choices.
+ var endQuiz = document.querySelector("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
+
+ const questionArray = questions; // we have access to the question.js due to the shared space in the index.HTML file. Thus allowing me to refer to variables declared in the question.js file.
 
 function startGame(){
     document.getElementById("start")
