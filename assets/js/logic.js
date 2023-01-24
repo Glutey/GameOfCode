@@ -13,10 +13,11 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  // start game with an event listener - set up function to start timer and display questions.
  var startQuiz = document.getElementById("start"); 
  document.addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
+
  var questionContainer = document.getElementById("questons"); //used to grab div for the Questions.
  var questionsTitle = document.getElementById("question-title");
  var choicesContainer = document.getElementById("choices"); // Grab div for the answer choices.
-var endScreen = document.getElementById("end-screen");
+ var endScreen = document.getElementById("end-screen");
  var finalScore = document.getElementById("final-score");
  var initialsInput = document.getElementById("initials");
  var submitButton = document.getElementById("submit");
@@ -50,43 +51,37 @@ function startQuiz() {
   displayQuestion();
 }
 
-
-// function startGame(){
-//     document.getElementById("start")
-//     function time(){
-//     var timeLeft = 60;
-//     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-//     var timer = setInterval(function () { 
-//         // As long as the `timeLeft` is greater than 1
-//       if (timeLeft > 1) {
-//         // Set the `textContent` of `timerEl` to show the remaining seconds
-//         time.textContent = timeLeft;
-//         // Decrement `timeLeft` by 1
-//         timeLeft--;
-//       } else (timeLeft === 0) {
-//         // Use `clearInterval()` to stop the timer
-//         clearInterval(timeLeft);
-//         endQuiz(); //make a condition so that if time is <= 0 you run a function to end the quiz
-//       }
-//       }; 1000);
-//       displayQuestion()}
- 
-
-  function displayQuestion() {
-      var currentQuest = questions[currentQuestion];//create a variable to get the current question object from question array
-      if (currentQuest < questions.length){
-        questionTitle.innerHTML = questions[currentQuestion].question; //update title with with current question...currentQuest.title
-        choicesContainer.innerHTML = "";
-        for (var i = 0; i < questions[currentQuestion].choices.length; i++) { //loop over questions
-          var choice = document.createElement("button"); //create a new button for each choice
-          choice.innerHTML = questions[currentQuestion].choices[i]; //set a value attribute to each with a value of questions.choices[i]
-          choice.addEventListener("click", checkAnswer); //attach a click event to the button with the checkAnswer function as the event
-          choicesContainer.appendChild(choice); //append the button to the choices
-        }
-      } else {
-        endQuiz(); //clear out the choices element
-      }
+function displayQuestion() {
+  if (currentQuestion < questions.length) {
+    questionTitle.innerHTML = questions[currentQuestion].question;
+    choicesContainer.innerHTML = "";
+    for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+      var choice = document.createElement("button");
+      choice.innerHTML = questions[currentQuestion].choices[i];
+      choice.addEventListener("click", checkAnswer);
+      choicesContainer.appendChild(choice);
     }
+  } else {
+    endQuiz();
+  }
+}
+
+
+  // function displayQuestion() {
+  //     var currentQuest = questions[currentQuestion];//create a variable to get the current question object from question array
+  //     if (currentQuest < questions.length){
+  //       questionTitle.innerHTML = questions[currentQuestion].question; //update title with with current question...currentQuest.title
+  //       choicesContainer.innerHTML = "";
+  //       for (var i = 0; i < questions[currentQuestion].choices.length; i++) { //loop over questions
+  //         var choice = document.createElement("button"); //create a new button for each choice
+  //         choice.innerHTML = questions[currentQuestion].choices[i]; //set a value attribute to each with a value of questions.choices[i]
+  //         choice.addEventListener("click", checkAnswer); //attach a click event to the button with the checkAnswer function as the event
+  //         choicesContainer.appendChild(choice); //append the button to the choices
+  //       }
+  //     } else {
+  //       endQuiz(); //clear out the choices element
+  //     }
+  //   }
     
   
   function checkAnswer() {
