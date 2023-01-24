@@ -26,12 +26,6 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  var endQuiz = document.getElementById("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
  
  var feedback = document.getElementById("feedback");
- 
-
-
-
-
-
 
 
 // Functions for working code:
