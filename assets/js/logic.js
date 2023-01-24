@@ -35,25 +35,41 @@ var endScreen = document.getElementById("end-screen");
 
 // Functions for working code:
 
-function startGame(){
-    document.getElementById("start")
-    function time(){
-    var timeLeft = 60;
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timer = setInterval(function () { 
-        // As long as the `timeLeft` is greater than 1
-      if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-        time.textContent = timeLeft;
-        // Decrement `timeLeft` by 1
-        timeLeft--;
-      } else (timeLeft === 0) {
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeLeft);
-        endQuiz(); //make a condition so that if time is <= 0 you run a function to end the quiz
-      }
-      }; 1000);
-      displayQuestion()}
+
+function startQuiz() {
+  startButton.classList.add("hide");
+  questionsContainer.classList.remove("hide");
+  timer = setInterval(function() {
+    time--;
+    document.getElementById("time").innerHTML = time;
+    if (time === 0) {
+      clearInterval(timer);
+      endQuiz(); // this is a function built at the end of the code, and it is just called here
+    }
+  }, 1000);
+  displayQuestion();
+}
+
+
+// function startGame(){
+//     document.getElementById("start")
+//     function time(){
+//     var timeLeft = 60;
+//     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+//     var timer = setInterval(function () { 
+//         // As long as the `timeLeft` is greater than 1
+//       if (timeLeft > 1) {
+//         // Set the `textContent` of `timerEl` to show the remaining seconds
+//         time.textContent = timeLeft;
+//         // Decrement `timeLeft` by 1
+//         timeLeft--;
+//       } else (timeLeft === 0) {
+//         // Use `clearInterval()` to stop the timer
+//         clearInterval(timeLeft);
+//         endQuiz(); //make a condition so that if time is <= 0 you run a function to end the quiz
+//       }
+//       }; 1000);
+//       displayQuestion()}
  
 
   function displayQuestion() {
