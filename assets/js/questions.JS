@@ -1,33 +1,33 @@
 var questions = [
     {
-        question1: "What does DOM stand for?",
-        choices1: ["Domain Obsessive Monitor", "Double Object Model", "Document Object Model"],
-        correctAnswer1: "Document Object Model" 
+        question: "What does DOM stand for?",
+        choices: ["Domain Obsessive Monitor", "Double Object Model", "Document Object Model"],
+        answer: "Document Object Model" 
     },
     {
-        question2: "What does Const do? ",
-        choices2: ["Const allows the varible to change its value", "Const makes the code 'considerate' and in keeping with accessibility", "Const ensures that the variable is unchangable"],
-        correctAnswer2: "Const ensures that the variable is unchangable" 
+        question: "What does Const do? ",
+        choices: ["Const allows the varible to change its value", "Const makes the code 'considerate' and in keeping with accessibility", "Const ensures that the variable is unchangable"],
+        answer: "Const ensures that the variable is unchangable" 
     },
     {
-        question3: "what does API stand for?",
-        choices3: ["Application Programable Interface", "Application Progress Interface", "Applicable Program Intro"],
-        correctAnswer3: "Application Programable Interface" 
+        question: "what does API stand for?",
+        choices: ["Application Programable Interface", "Application Progress Interface", "Applicable Program Intro"],
+        answer: "Application Programable Interface" 
     },
     {
-        question4: "What how can you add information to an array?",
-        choices4: [".new-item()", ".add()", ".append()"],
-        correctAnswer4: ".append()" 
+        question: "What how can you add information to an array?",
+        choices: [".new-item()", ".add()", ".append()"],
+        answer: ".append()" 
     },
     {
-        question5: "What information type returns either true or false?",
-        choices5: ["boolean", "string", "number"],
-        correctAnswer5: "Application Programable Interface" 
+        question: "What information type returns either true or false?",
+        choices: ["boolean", "string", "number"],
+        answer: "Application Programable Interface" 
     },
     {
-        question5: "Which operator is 'strict' equals?",
-        choices5: ["=", "===", "=="],
-        correctAnswer5: "===" 
+        question: "Which operator is 'strict' equals?",
+        choices: ["=", "===", "=="],
+        answer: "===" 
     }
 ];
 

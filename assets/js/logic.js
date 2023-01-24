@@ -14,9 +14,9 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  var startQuiz = document.addEventListener("click"); // wrong, needs to be get ElementByID first, as that declares what is required
  document.getElementById("start").addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
  
- var questionContainer = document.querySelector("queston-title"); //used to grab div for the Questions.
- var choicesContainer = document.querySelector("choices"); // Grab div for the answer choices.
- var endQuiz = document.querySelector("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
+ var questionContainer = document.getElementById("queston-title"); //used to grab div for the Questions.
+ var choicesContainer = document.getElementById("choices"); // Grab div for the answer choices.
+ var endQuiz = document.getElementById("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
 
  const questionArray = questions; // we have access to the question.js due to the shared space in the index.HTML file. Thus allowing me to refer to variables declared in the question.js file.
 
@@ -35,27 +35,88 @@ function startGame(){
       } else (timeLeft === 0) {
         // Use `clearInterval()` to stop the timer
         clearInterval(timeLeft);
-      }; 1000})
-    }}
-
-
-  displayQuestion = function (){} // wrong... a statement should be declared first - then the name of the 
+        endQuiz();
+      }
+      }; 1000);
+      displayQuestion()}
+ 
+  //make a condition so that if time is <= 0 you run a function to end the quiz
 
   function displayQuestion() {
-      for (var i = 0; i < questions.length; i++)
-      if (currentQuestion < questions[i]) {
-        // lost...
+    //create a variable to get the current question object from question array
+      var currentQuest = questions[currentQuestion];
+      if (currentQuest < questions.length){
+        questionTitle.innerHTML = questions[currentQuestion].question;
+        choicesContainer.innerHTML = "";
+        for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+          var choice = document.createElement("button");
+          choice.innerHTML = questions[currentQuestion].choices[i];
+          choice.addEventListener("click", checkAnswer);
+          choicesContainer.appendChild(choice);
+        }
+      } else {
+        endQuiz();
       }
     }
+    
 
-// function code for answer selection 
-function checkAnswer() {
-    var correct1 = "Domain Object Model";
-    var selected = document.querySelector('input[name="Domain Object Model"]:checked').value;
-    if (selected === correct1) {
-      sfxRight.play(); // calls the sound effect
-    }else {
-        sfxWrong.play();} // calls the sound effect
+    //update title with with current question...currentQuest.title
+
+    //clear out the choices element
+
+    //loop over questions
+  
+      //create a new button for each choice
+
+      //set a value attribute to each with a value of questions.choices[i]
+
+      //attach a click event to the button with the checkAnswer function as the event
+     
+      //append the button to the choices
+
+
+  function checkAnswer() {
+    if (this.innerHTML === questions[currentQuestion].answer) {
+      score++;
+      feedback.innerHTML = sfxRight();
+      feedback.classList.remove("hide");
+    } else {
+      time -= 10;
+      feedback.innerHTML = sfxWrong;
+      feedback.classList.remove("hide");
+    }
+    setTimeout(function() {
+      feedback.classList.add("hide");
+      currentQuestion++;
+      displayQuestion();
+    }, 1000);
+  }
+  
+    //check if the value of the button clicked(this) and if it matches the answer of the current question
+      //then make the feedback element have a text of 'Correct'
+
+    //else you need to reduce 15 seconds from the time
+      //make a conditional so that if the time is < 0, the time = 0
+
+      //display the new time on the page
+
+    //remove the class of hide to the feedback element
+    //set a timeout function so that the class of hide gets added back after a second to hide the feedback
+
+    //move to the next question
+
+    //make a condition so that if we ran out of questions the quiz ends, else displayQuestion
 
 
 
+  //create a function to end the quiz
+function endQuiz() {
+  clearInterval(timer);
+  questionsContainer.classList.add("hide");
+  endScreen.classList.remove
+
+
+  //inside the function clear the interval of the timer
+  //hide the questions
+  //show the end screen
+  //show the fina score
