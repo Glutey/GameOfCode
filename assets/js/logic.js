@@ -6,19 +6,31 @@ var currentQuestion = 0;
 var score = 0;
 var submit = ;
 
-// sound effects for riggt and wrong answer
+// sound effects for right and wrong answer
 var sfxRight = new Audio("assets/sfx/correct.wav");
 var sfxWrong = new Audio("assets/sfx/incorrect.wav");
                 
  // start game with an event listener - set up function to start timer and display questions.
- var startQuiz = document.addEventListener("click"); // wrong, needs to be get ElementByID first, as that declares what is required
- document.getElementById("start").addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
- 
- var questionContainer = document.getElementById("queston-title"); //used to grab div for the Questions.
+ var startQuiz = document.getElementById("start"); 
+ document.addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
+ var questionContainer = document.getElementById("questons"); //used to grab div for the Questions.
+ var questionsTitle = document.getElementById("question-title");
  var choicesContainer = document.getElementById("choices"); // Grab div for the answer choices.
- var endQuiz = document.getElementById("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
+var endScreen = document.getElementById("end-screen");
+ var finalScore = document.getElementById("final-score");
+ var initialsInput = document.getElementById("initials");
+ var submitButton = document.getElementById("submit");
+ submitButton.addEventListener("click", saveScore);
 
- const questionArray = questions; // we have access to the question.js due to the shared space in the index.HTML file. Thus allowing me to refer to variables declared in the question.js file.
+ var endQuiz = document.getElementById("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
+ 
+ var feedback = document.getElementById("feedback");
+ 
+
+
+
+
+
 
 
 // Functions for working code:
